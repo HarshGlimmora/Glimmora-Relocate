@@ -1,0 +1,7 @@
+{
+  "_description": "Canonical role/title taxonomy used by engines/intake/normalizers.py and engines/job/role_normalizer.py. Maps freeform titles to canonical categories. Structure: 'canonical' (dict of canonical_title -> {category, adjacent_categories (list), default_skills (list), typical_salary_band_by_country (dict country_code -> {min, max, currency})}), and 'aliases' (flat dict of lowercase_variant -> canonical_title).",
+  "_schema_version": "0.1",
+  "_status": "stub — populate with 30-50 canonical tech/business roles + 200+ aliases",
+  "canonical": {},
+  "aliases": {}
+}

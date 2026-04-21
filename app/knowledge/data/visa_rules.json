@@ -1,0 +1,6 @@
+{
+  "_description": "Visa path rules per destination country. Used by engines/job/visa_filter.py, engines/document/checklist_builder.py, and engines/timeline/templates.py. Keyed by country code -> list of visa_paths. Each visa_path entry will contain: id (stable string e.g. 'DE_EU_BLUE_CARD'), label, eligible_role_categories (list), min_years_experience, min_salary_usd, required_documents (list of doc_ids referring to document_templates.json), processing_time_weeks {min, typical, max}, degree_required (bool), language_requirement (null or {language, level}), sponsorship_required (bool), family_reunification (bool), path_to_PR_years (int or null).",
+  "_schema_version": "0.1",
+  "_status": "stub — populate with at least 2 visa paths per supported country",
+  "visa_rules": {}
+}

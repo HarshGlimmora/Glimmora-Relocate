@@ -1,0 +1,6 @@
+{
+  "_description": "Sample profiles used by tests/ and scripts/ smoke runs. Each entry is a valid ProfileInput shape (see app/schemas/profile.py). Include at least: (1) single tech worker IN->DE, mid-career; (2) family couple with kids US->PT, comfortable salary; (3) senior engineer UK->CA, urgent; (4) junior IN->NL, tight budget; (5) edge case with exotic role string + missing target_salary.",
+  "_schema_version": "0.1",
+  "_status": "stub — populate once ProfileInput schema is concrete",
+  "profiles": []
+}

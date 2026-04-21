@@ -1,0 +1,7 @@
+{
+  "_description": "Document templates composed by engines/document/checklist_builder.py. Provides the master dictionary of doc_id -> metadata AND the per-(country, visa_path) required/optional sets. Top-level keys: 'doc_catalog' (flat dict of doc_id -> {label, category, how_to_obtain, default_validity_years, apostille_required_by_destinations (list of country codes), family_scope ('self' | 'spouse' | 'children' | 'all')}) and 'by_visa_path' (dict of visa_path_id -> {required: [doc_id, ...], optional: [doc_id, ...]}).",
+  "_schema_version": "0.1",
+  "_status": "stub — populate doc_catalog with ~30 common docs; by_visa_path mirrors visa_rules.json ids",
+  "doc_catalog": {},
+  "by_visa_path": {}
+}

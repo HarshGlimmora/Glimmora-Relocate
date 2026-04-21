@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Glimmora Relocate — "Private Intelligence Dossier"
+ * Design tokens. All color values are HSL channels (no hsl() wrapper) so
+ * Tailwind can apply alpha modifiers via `color / <alpha-value>`.
+ */
+@layer base {
+  :root {
+    --paper:          42 33% 94%;   /* #F5F2EB warm paper */
+    --paper-soft:     42 40% 97%;   /* #FAF8F3 ivory wash */
+    --canvas:         0  0%  100%;  /* #FFFFFF card surface */
+
+    --ink:            120 3% 8%;    /* #131413 near-black */
+    --ink-soft:       120 3% 17%;   /* #2B2D2B charcoal */
+    --muted:          36 3% 47%;    /* #7A7773 warm slate */
+    --muted-strong:   36 4% 33%;    /* #55534F */
+
+    --rule:           40 20% 87%;   /* #E5E0D6 hairline */
+    --rule-strong:    40 14% 76%;   /* #CCC5B5 */
+
+    --accent:         174 70% 18%;  /* #0E4F48 forest teal */
+    --accent-soft:    166 20% 93%;  /* #E9F0EE wash */
+    --accent-ink:     174 60% 12%;  /* #0A3833 */
+
+    --success:        132 27% 33%;  /* #3D6B47 */
+    --success-soft:   132 22% 92%;
+    --warning:        35 50% 48%;   /* #B8833D */
+    --warning-soft:   35 55% 94%;
+    --danger:         0 44% 42%;    /* #9A3A3A */
+    --danger-soft:    0 50% 95%;
+  }
+
+  * {
+    border-color: hsl(var(--rule));
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  body {
+    background: hsl(var(--paper));
+    color: hsl(var(--ink));
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    font-feature-settings: "ss01", "cv11", "tnum" 0;
+  }
+
+  /* Paper grain — subtle texture gives the institutional feel. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.045 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  main, nav, footer, header {
+    position: relative;
+    z-index: 1;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.18);
+    color: hsl(var(--accent-ink));
+  }
+
+  /* Headings default to display serif */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: hsl(var(--ink));
+  }
+
+  /* Tabular numerics for metrics by default */
+  .tnum, [data-tnum] {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum", "cv11";
+  }
+
+  /* Accessible focus ring — precise, not chunky */
+  :focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px hsl(var(--paper)),
+      0 0 0 3px hsl(var(--accent));
+  }
+
+  input, textarea, select, button {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  /* Small-caps tracked section labels — the dossier signature */
+  .label {
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-strong));
+  }
+
+  /* Hairline rule — used everywhere */
+  .hairline {
+    height: 1px;
+    width: 100%;
+    background: hsl(var(--rule));
+  }
+
+  /* Case-file card */
+  .dossier {
+    background: hsl(var(--canvas));
+    border: 1px solid hsl(var(--rule));
+    box-shadow: 0 1px 0 hsl(var(--rule) / 0.4);
+  }
+
+  /* Dateline — monospace metadata strip */
+  .dateline {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: hsl(var(--muted));
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Vertical rule between inline metadata */
+  .rule-dot::after {
+    content: "·";
+    margin: 0 0.6em;
+    color: hsl(var(--rule-strong));
+  }
+
+  /* Numeric display */
+  .metric {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.015em;
+  }
+
+  /* Progressive shimmer for skeletons */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+    background: hsl(var(--paper-soft));
+  }
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--canvas) / 0.9),
+      transparent
+    );
+    animation: sweep 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* ------ Motion reductions ------ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

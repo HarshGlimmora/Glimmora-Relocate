@@ -1,0 +1,6 @@
+{
+  "_description": "Per (country, visa_path) milestone templates consumed by engines/timeline/templates.py. Each template is an ordered list of milestone entries: {milestone_id, title, category (APPLICATION|DOCUMENT|VISA|HOUSING|JOB|MOVE|SETTLEMENT), typical_duration_days, min_lead_days (KB-enforced minimum — scheduler refuses to schedule below this), max_delay_days (risk upper bound used by delay_risks), depends_on (list of milestone_ids), critical_hint (bool)}. Top-level keyed by visa_path_id so same country with different visa paths yields distinct timelines.",
+  "_schema_version": "0.1",
+  "_status": "stub — populate with one timeline template per visa_path in visa_rules.json",
+  "templates": {}
+}

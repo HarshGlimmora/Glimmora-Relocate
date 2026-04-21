@@ -1,0 +1,6 @@
+{
+  "_description": "Country metadata used by relocation, financial, cultural, and document engines. Keyed by ISO-3166-1 alpha-2 code. Each country entry will contain: name, currency, language_primary, cost_of_living_index (NYC=100 baseline), rent_index, food_index, transport_index, healthcare (public_access, english_support, family_suitability), housing (rental_vacancy_rate, typical_deposit_months, foreigner_friendliness), transport (public_coverage, international_airport_count), lifestyle (climate_zone, safety_index, foreigner_integration_index, internet_quality), family (international_schools, childcare_cost_index, dependent_visa_support), taxation (effective_income_tax_rate, social_contribution_rate), bureaucracy (avg_gov_process_weeks, working_days_used_for_processing), aliases (list of common alternative names for normalization).",
+  "_schema_version": "0.1",
+  "_status": "stub — populate with 10 target countries for MVP (DE, PT, NL, CA, AU, IE, SG, AE, GB, US)",
+  "countries": {}
+}

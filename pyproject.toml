@@ -1,0 +1,11 @@
+# Project metadata and dependencies for Glimmora Relocate backend.
+#
+# Responsibilities of this file:
+# - declare Python version (>=3.11 required for async orchestrator + taskgroups)
+# - pin runtime deps: fastapi, uvicorn[standard], pydantic>=2, sqlalchemy[asyncio],
+#   asyncpg, alembic, httpx, redis, anthropic, python-dotenv, orjson
+# - pin dev deps: pytest, pytest-asyncio, pytest-cov, ruff, mypy, httpx (as test client)
+# - configure ruff (line length, import ordering) and mypy (strict on app/schemas, app/engines)
+# - define build system (setuptools or hatchling)
+# - expose console scripts: `relocate-dev` -> scripts.run_dev:main,
+#                           `relocate-seed` -> scripts.seed_knowledge:main

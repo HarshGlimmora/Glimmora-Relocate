@@ -1,0 +1,6 @@
+{
+  "_description": "Per-country cultural content loaded by engines/cultural/templates.py. Keyed by country code. Each country entry: {language_basics: [{phrase, translation, context}], workplace_etiquette: [{topic, do: [...], dont: [...]}], social_etiquette: [{topic, do: [...], dont: [...]}], communication_style (paragraph string), first_week: [{day, task, why_it_matters}], dos_and_donts (list of short strings)}. LLM enrichment layer may personalize but never invents new top-level keys.",
+  "_schema_version": "0.1",
+  "_status": "stub — seed with content for the 10 MVP countries; curator should review",
+  "countries": {}
+}

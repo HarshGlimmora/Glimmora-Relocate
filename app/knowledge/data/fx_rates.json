@@ -1,0 +1,8 @@
+{
+  "_description": "Seed FX rates used by engines/financial/fx.py at startup and as fallback when FX_PROVIDER_URL is unset or failing. Structure: base currency is USD; 'rates' maps ISO-4217 code -> decimal multiplier where amount_in_ccy = amount_in_usd * rates[ccy]. Includes 'as_of' ISO date. Include every currency present in countries.json.",
+  "_schema_version": "0.1",
+  "_status": "stub — populate at build time from a reference source; refreshed at runtime if FX_PROVIDER_URL is set",
+  "base": "USD",
+  "as_of": null,
+  "rates": {}
+}

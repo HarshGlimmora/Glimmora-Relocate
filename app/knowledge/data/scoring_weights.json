@@ -1,0 +1,10 @@
+{
+  "_description": "All tunable weights in one place so non-engineers (or A/B experiments) can tune without code changes. Structure mirrors the engines: {'job': {role_fit, skill_fit, salary_fit, location_fit, seniority_fit, visa_fit}, 'relocation': {housing, transport, healthcare, lifestyle, family}, 'financial': {'affordability': {surplus_ratio_weight, runway_score_weight, urgency_penalty, band_thresholds: {comfortable, tight, risky}}, 'runway': {burn_threshold_months: {tight, risky, not_viable}}}, 'recommendation': {verdict_thresholds: {go, go_with_caveats, delay}}}. Per-journey overrides live at the top level under '_journey_overrides' keyed by JourneyType.",
+  "_schema_version": "0.1",
+  "_status": "stub — supply defaults once engines are wired",
+  "job": {},
+  "relocation": {},
+  "financial": {},
+  "recommendation": {},
+  "_journey_overrides": {}
+}
