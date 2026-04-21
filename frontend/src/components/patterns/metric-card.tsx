@@ -35,15 +35,15 @@ export function MetricCard({
         className
       )}
     >
-      <div className="label mb-3">{label}</div>
-      <div className="metric text-[40px] leading-none text-ink">
+      <div className="label mb-3.5">{label}</div>
+      <div className="metric text-[46px] leading-none text-ink">
         {value}
         {unit ? (
-          <span className="ml-1 text-[18px] text-muted">{unit}</span>
+          <span className="ml-1 text-[20px] text-muted">{unit}</span>
         ) : null}
       </div>
       {caption ? (
-        <div className="mt-3 text-[12.5px] text-muted-strong leading-relaxed">
+        <div className="mt-3.5 text-[13.5px] text-muted-strong leading-relaxed">
           {caption}
         </div>
       ) : null}

@@ -15,7 +15,7 @@ export const SelectTrigger = React.forwardRef<
   <RadixSelect.Trigger
     ref={ref}
     className={cn(
-      "flex h-11 w-full items-center justify-between bg-canvas border border-rule px-3.5 text-[14px] text-ink",
+      "flex h-12 w-full items-center justify-between bg-canvas border border-rule px-4 text-[15px] text-ink",
       "hover:border-rule-strong focus:border-accent outline-none transition-colors",
       "[&>span]:truncate",
       className
@@ -58,7 +58,7 @@ export const SelectItem = React.forwardRef<
   <RadixSelect.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center py-2 px-3 text-[13.5px] text-ink",
+      "relative flex cursor-pointer select-none items-center py-2.5 px-3.5 text-[14.5px] text-ink",
       "data-[highlighted]:bg-paper-soft data-[highlighted]:outline-none",
       "data-[state=checked]:bg-accent-soft",
       className

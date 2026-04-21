@@ -11,8 +11,8 @@ export const Input = React.forwardRef<
     ref={ref}
     type={type}
     className={cn(
-      "flex h-11 w-full bg-canvas border border-rule px-3.5 text-[14px]",
-      "placeholder:text-muted placeholder:text-[13.5px]",
+      "flex h-12 w-full bg-canvas border border-rule px-4 text-[15px]",
+      "placeholder:text-muted placeholder:text-[14.5px]",
       "transition-colors duration-150",
       "hover:border-rule-strong focus:border-accent focus:ring-0 outline-none",
       "file:border-0 file:bg-transparent file:text-sm file:font-medium",
@@ -32,8 +32,8 @@ export const Textarea = React.forwardRef<
   <textarea
     ref={ref}
     className={cn(
-      "w-full min-h-[88px] bg-canvas border border-rule px-3.5 py-3 text-[14px] leading-relaxed",
-      "placeholder:text-muted placeholder:text-[13.5px]",
+      "w-full min-h-[96px] bg-canvas border border-rule px-4 py-3 text-[15px] leading-relaxed",
+      "placeholder:text-muted placeholder:text-[14.5px]",
       "hover:border-rule-strong focus:border-accent outline-none",
       "disabled:cursor-not-allowed disabled:opacity-60",
       className
@@ -50,7 +50,7 @@ export function Label({
   return (
     <label
       className={cn(
-        "text-[12px] font-medium text-ink-soft tracking-[0.02em]",
+        "text-[13px] font-medium text-ink-soft tracking-[0.01em]",
         className
       )}
       {...props}
@@ -59,13 +59,13 @@ export function Label({
 }
 
 export function FieldHelp({ children }: { children: React.ReactNode }) {
-  return <p className="text-[12px] text-muted mt-1.5 leading-relaxed">{children}</p>;
+  return <p className="text-[13px] text-muted mt-2 leading-relaxed">{children}</p>;
 }
 
 export function FieldError({ message }: { message?: string }) {
   if (!message) return null;
   return (
-    <p className="text-[12px] text-danger mt-1.5 leading-relaxed">{message}</p>
+    <p className="text-[13px] text-danger mt-2 leading-relaxed">{message}</p>
   );
 }
 

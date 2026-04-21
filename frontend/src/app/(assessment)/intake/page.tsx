@@ -36,13 +36,16 @@ const COUNTRIES = [
 
 const STORAGE_DEFAULTS: Partial<ProfileFormValues> = {
   currentCountry: "",
+  currentCity: "",
   targetCountries: [],
+  targetCity: "",
   undecided: false,
   role: "",
   yearsExperience: 0,
   currentSalary: { amount: 0, currency: "USD" },
   workPreference: "hybrid",
   familyStatus: "single",
+  childrenCount: undefined,
   urgency: "6m",
   visaStatus: "",
   priority: "stability",
@@ -124,6 +127,13 @@ export default function IntakePage() {
               />
             </Field>
 
+            <Field
+              label="Current city"
+              help="Helps us price your current cost baseline more accurately."
+            >
+              <Input placeholder="e.g. Bangalore" {...form.register("currentCity")} />
+            </Field>
+
             <Field label="Primary target country" help="Pick the likeliest one — you can add more later.">
               <Controller
                 control={form.control}
@@ -153,9 +163,20 @@ export default function IntakePage() {
                 }}
               />
             </Field>
+
+            <Field
+              label="Target city"
+              help="Optional — if you have one in mind. We'll use the country otherwise."
+            >
+              <Input
+                placeholder="e.g. Berlin"
+                disabled={form.watch("undecided")}
+                {...form.register("targetCity")}
+              />
+            </Field>
           </div>
 
-          <label className="mt-5 inline-flex items-center gap-3 text-[13px] text-ink-soft cursor-pointer">
+          <label className="mt-6 inline-flex items-center gap-3 text-[14px] text-ink-soft cursor-pointer">
             <input
               type="checkbox"
               {...form.register("undecided")}
@@ -314,6 +335,21 @@ export default function IntakePage() {
                 )}
               />
             </Field>
+
+            {form.watch("familyStatus") === "family_with_kids" ? (
+              <Field
+                label="Children moving with you"
+                help="Affects school availability, dependent visas, and housing size."
+              >
+                <Input
+                  type="number"
+                  min={1}
+                  max={10}
+                  placeholder="e.g. 2"
+                  {...form.register("childrenCount", { valueAsNumber: true })}
+                />
+              </Field>
+            ) : null}
 
             <Field label="Move urgency">
               <Controller

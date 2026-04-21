@@ -61,8 +61,8 @@ export default function LandingPage() {
               <FadeIn delay={0.22}>
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <Link
-                    href="/intent"
-                    className="inline-flex h-12 items-center px-7 text-[14px] text-paper bg-ink hover:bg-accent-ink transition-colors"
+                    href="/auth/register"
+                    className="inline-flex h-14 items-center px-8 text-[15px] text-paper bg-ink hover:bg-accent-ink transition-colors"
                   >
                     Start assessment
                     <ArrowUpRight className="ml-2 size-4" strokeWidth={1.5} />
@@ -135,13 +135,13 @@ export default function LandingPage() {
             {[
               {
                 step: "01",
-                title: "Intent",
-                body: "One tap to tell us what you're actually trying to do.",
+                title: "Account & resume",
+                body: "Quick signup, then drop your resume — we read role and history from it.",
               },
               {
                 step: "02",
-                title: "Profile",
-                body: "A minimal set of questions — role, target, urgency, family.",
+                title: "Intent & profile",
+                body: "Tell us the goal, fill only what the resume can't cover.",
               },
               {
                 step: "03",
@@ -174,15 +174,20 @@ export default function LandingPage() {
             ))}
           </div>
 
-          <div className="mt-16 flex items-center gap-5">
+          <div className="mt-16 flex items-center gap-6">
             <Link
-              href="/intent"
-              className="inline-flex h-12 items-center px-7 text-[14px] text-paper bg-accent hover:bg-accent-ink transition-colors"
+              href="/auth/register"
+              className="inline-flex h-14 items-center px-8 text-[15px] text-paper bg-accent hover:bg-accent-ink transition-colors"
             >
               Begin your case
               <ArrowUpRight className="ml-2 size-4" strokeWidth={1.5} />
             </Link>
-            <span className="dateline">No sign-up required to start</span>
+            <Link
+              href="/auth/login"
+              className="text-[14px] text-ink-soft underline-offset-[6px] decoration-rule-strong hover:decoration-accent underline"
+            >
+              Already have an account
+            </Link>
           </div>
         </div>
       </section>

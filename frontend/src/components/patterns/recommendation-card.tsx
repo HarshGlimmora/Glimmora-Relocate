@@ -38,15 +38,15 @@ export function RecommendationCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h3 className="font-display text-[22px] leading-tight text-ink tracking-tight">
+              <h3 className="font-display text-[24px] leading-tight text-ink tracking-tight">
                 {title}
               </h3>
-              <p className="mt-1 text-[13.5px] text-muted-strong">{subtitle}</p>
+              <p className="mt-1.5 text-[14.5px] text-muted-strong">{subtitle}</p>
             </div>
             {salary ? (
               <div className="text-right shrink-0">
-                <div className="label mb-1">Pay band</div>
-                <div className="font-mono text-[13px] text-ink tnum">{salary}</div>
+                <div className="label mb-1.5">Pay band</div>
+                <div className="font-mono text-[14px] text-ink tnum">{salary}</div>
               </div>
             ) : null}
           </div>
@@ -65,11 +65,11 @@ export function RecommendationCard({
             <ScoreBar value={score} label="Match quality" tone="accent" />
           </div>
 
-          <ul className="mt-5 space-y-1.5">
+          <ul className="mt-5 space-y-2">
             {reasons.map((r) => (
               <li
                 key={r}
-                className="flex gap-3 text-[13px] text-ink-soft leading-relaxed"
+                className="flex gap-3 text-[14px] text-ink-soft leading-relaxed"
               >
                 <span className="mt-[9px] size-[3px] bg-accent shrink-0" />
                 <span>{r}</span>

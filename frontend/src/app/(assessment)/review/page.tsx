@@ -52,13 +52,20 @@ export default function ReviewPage() {
               title="Direction"
               editHref="/intake"
               items={[
-                { label: "Current country", value: profile?.currentCountry ?? "—" },
+                {
+                  label: "Currently",
+                  value:
+                    profile?.currentCity && profile?.currentCountry
+                      ? `${profile.currentCity}, ${profile.currentCountry}`
+                      : profile?.currentCountry ?? "—",
+                },
                 {
                   label: "Target",
-                  value:
-                    profile?.undecided
-                      ? "Undecided — compare options"
-                      : (profile?.targetCountries?.join(", ") || "—"),
+                  value: profile?.undecided
+                    ? "Undecided — compare options"
+                    : profile?.targetCity
+                    ? `${profile.targetCity}, ${profile.targetCountries?.[0] ?? ""}`
+                    : (profile?.targetCountries?.join(", ") || "—"),
                 },
                 { label: "Intent", value: JOURNEYS[journey ?? "find_better_job_abroad"] },
               ]}
@@ -95,6 +102,14 @@ export default function ReviewPage() {
               editHref="/intake"
               items={[
                 { label: "Family", value: profile?.familyStatus?.replace(/_/g, " ") ?? "—" },
+                ...(profile?.familyStatus === "family_with_kids"
+                  ? [{
+                      label: "Children",
+                      value: profile?.childrenCount
+                        ? `${profile.childrenCount}`
+                        : "Not specified",
+                    }]
+                  : []),
                 { label: "Urgency", value: profile?.urgency ?? "—" },
                 { label: "Priority", value: profile?.priority ?? "—" },
                 {

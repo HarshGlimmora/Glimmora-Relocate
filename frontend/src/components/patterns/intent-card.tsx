@@ -50,13 +50,13 @@ export function IntentCard({
 
       <h3
         className={cn(
-          "font-display text-[22px] leading-tight tracking-tight mb-2",
+          "font-display text-[24px] leading-tight tracking-tight mb-2.5",
           selected ? "text-ink" : "text-ink"
         )}
       >
         {title}
       </h3>
-      <p className="text-[13.5px] text-muted-strong leading-relaxed max-w-[28ch]">
+      <p className="text-[14.5px] text-muted-strong leading-relaxed max-w-[28ch]">
         {description}
       </p>
 

@@ -1,8 +1,10 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { TopNav } from "@/components/shell/top-nav";
 import { Stepper, ASSESSMENT_STEPS } from "@/components/patterns/stepper";
+import { useAuthStore } from "@/lib/state/auth-store";
 
 function keyForPath(path: string): string {
   if (path.includes("/intake")) return "intake";
@@ -18,7 +20,24 @@ export default function AssessmentLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const user = useAuthStore((s) => s.user);
   const activeKey = keyForPath(pathname);
+
+  // Gate the assessment flow behind authentication — the new canonical entry
+  // point is /auth/register. Signed-out visitors are redirected there so the
+  // resume-driven path is preserved.
+  useEffect(() => {
+    if (user === undefined) {
+      // Zustand is hydrating — wait a tick.
+      const id = setTimeout(() => {
+        if (!useAuthStore.getState().user) {
+          router.replace("/auth/register");
+        }
+      }, 60);
+      return () => clearTimeout(id);
+    }
+  }, [user, router]);
 
   return (
     <>
